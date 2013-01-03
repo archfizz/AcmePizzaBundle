@@ -4,12 +4,12 @@ namespace Acme\PizzaBundle\Form\Type;
 
 use
     Symfony\Component\Form\AbstractType,
-    Symfony\Component\Form\FormBuilder
+    Symfony\Component\Form\FormBuilderInterface
 ;
 
 class CustomerType extends AbstractType
 {
-    public function buildForm(FormBuilder $builder, array $options)
+    public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
             ->add('name')

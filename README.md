@@ -15,32 +15,18 @@ Symfony(https://github.com/symfony/symfony) obviously.
 Installation
 ------------
 
-### Add the deps for the needed bundles
+### Add the needed bundles to composer.json
 
-``` php
-[AcmePizzaBundle]
-    git=https://github.com/beberlei/AcmePizzaBundle.git
-    target=/bundles/Acme/PizzaBundle
+In the require section of `composer.json` add
 
-[doctrine-fixtures]
-    git=http://github.com/doctrine/data-fixtures.git
-
-[DoctrineFixturesBundle]
-    git=http://github.com/symfony/DoctrineFixturesBundle.git
-    target=/bundles/Symfony/Bundle/DoctrineFixturesBundle
+``` javascript
+        "doctrine/data-fixtures": "dev-master",
+        "doctrine/doctrine-fixtures-bundle": "dev-master",
 ```
-Next, run the vendors script to download the bundles:
+Next, run the composer console to download the bundles:
 
 ``` bash
-$ php bin/vendors install
-```
-
-### Add to autoload.php
-
-``` php
-$loader->registerNamespaces(array(
-    'Acme'             => __DIR__.'/../vendor/bundles',
-    // ...
+$ php composer.phar install
 ```
 
 ### Register AcmePizzaBundle to Kernel
