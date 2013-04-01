@@ -2,10 +2,9 @@
 
 namespace Acme\PizzaBundle\Form\Type;
 
-use
-    Symfony\Component\Form\AbstractType,
-    Symfony\Component\Form\FormBuilderInterface
-;
+use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class OrderItemType extends AbstractType
 {
@@ -20,9 +19,11 @@ class OrderItemType extends AbstractType
         ;
     }
 
-    public function getDefaultOptions(array $options)
+    public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
-        return array('data_class' => 'Acme\PizzaBundle\Entity\OrderItem');
+        $resolver->setDefaults(array(
+            'data_class' => 'Acme\PizzaBundle\Entity\OrderItem'
+        ));
     }
 
      public function getName()

@@ -26,7 +26,7 @@ class OrderController extends Controller
      */
     public function indexAction()
     {
-        $em = $this->getDoctrine()->getEntityManager();
+        $em = $this->getDoctrine()->getManager();
 
         $factory = new OrderFactory($em);
 
@@ -60,7 +60,7 @@ class OrderController extends Controller
      */
     public function listAction()
     {
-        $orders = $this->getDoctrine()->getEntityManager()
+        $orders = $this->getDoctrine()->getManager()
             ->createQuery('SELECT o FROM AcmePizzaBundle:Order o ORDER BY o.id DESC')
             ->getResult()
         ;
@@ -74,7 +74,7 @@ class OrderController extends Controller
      */
     public function showAction($id)
     {
-        $order = $this->getDoctrine()->getEntityManager()->find('AcmePizzaBundle:Order', $id);
+        $order = $this->getDoctrine()->getManager()->find('AcmePizzaBundle:Order', $id);
 
         if (!$order) {
             throw $this->createNotFoundException('The order does not exist');
@@ -89,7 +89,7 @@ class OrderController extends Controller
      */
     public function editAction($id)
     {
-        $em = $this->getDoctrine()->getEntityManager();
+        $em = $this->getDoctrine()->getManager();
 
         $order = $em->find('AcmePizzaBundle:Order', $id);
         /* @var \Acme\PizzaBundle\Entity\Order $order */
@@ -128,7 +128,7 @@ class OrderController extends Controller
      */
     public function deleteAction($id)
     {
-        $em = $this->getDoctrine()->getEntityManager();
+        $em = $this->getDoctrine()->getManager();
 
         $order = $em->find('AcmePizzaBundle:Order', $id);
 

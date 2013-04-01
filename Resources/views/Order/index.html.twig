@@ -34,7 +34,8 @@
     {% endmacro %}
 
     <script type="text/html">
-        {{ _self.prototype(form.items.get('prototype')) }} {# don't know if it is the best way to access prototype #}
+        {{ _self.prototype(form.items.vars.prototype) }}
+        {# "don't know if it is the best way to access prototype" #}
     </script>
 
     <table>
@@ -85,23 +86,23 @@
     /* ...known customer... */
     var toggle = true;
 
-    $('input#{{ form.known_customer.get('id') }}').change(function() {
+    $('input#{{ form.known_customer.vars.id }}').change(function() {
 
         if ($(this).is(':checked')) {
 
-            var $$ = $('input#{{ form.known_phone.get('id') }}').closest('div');
+            var $$ = $('input#{{ form.known_phone.vars.id }}').closest('div');
             $$.find('input').attr('disabled', false);
             if (toggle) $$.show();
 
-            var $$ = $('label:contains("{{ form.customer.get('label') }}"):first').closest('div');
+            var $$ = $('label:contains("{{ form.customer.vars.label }}"):first').closest('div');
             $$.find('input').attr('disabled', true);
             if (toggle) $$.hide();
         } else {
-            var $$ = $('label:contains("{{ form.customer.get('label') }}"):first').closest('div');
+            var $$ = $('label:contains("{{ form.customer.vars.label }}"):first').closest('div');
             $$.find('input').attr('disabled', false);
             if (toggle) $$.show();
 
-            var $$ = $('input#{{ form.known_phone.get('id') }}').closest('div');
+            var $$ = $('input#{{ form.known_phone.vars.id }}').closest('div');
             $$.find('input').attr('disabled', true);
             if (toggle) $$.hide();
         }

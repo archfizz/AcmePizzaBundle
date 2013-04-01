@@ -20,7 +20,7 @@ class CustomerController extends Controller
      */
     public function listAction()
     {
-        $customers = $this->getDoctrine()->getEntityManager()
+        $customers = $this->getDoctrine()->getManager()
             ->createQuery('SELECT c FROM AcmePizzaBundle:Customer c ORDER BY c.name ASC')
             ->getResult()
         ;

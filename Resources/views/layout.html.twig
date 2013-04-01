@@ -25,7 +25,7 @@
 
         <hr />
 
-        {% if app.session.hasFlash('success') %}
+        {% if app.session.flashbag.get('success') %}
         <div class="success">
             {{ app.session.flash('success') }}
         </div>
