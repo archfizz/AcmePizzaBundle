@@ -64,7 +64,7 @@
     /* add pizzas */
     var add = function() {
         var index = $('table tbody tr').length;
-        var row = $('script[type="text/html"]').text().replace(/\$\$name\$\$/g, index);
+        var row = $('script[type="text/html"]').text().replace(/__name__/g, index);
 
         $('table tbody').append(row);
     };
